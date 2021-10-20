@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">		
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://mahdihat791.github.io/v2/ADV-C86-minecraft.com/fabric.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Album Creator</title>
+    <style>
+        body{
+            text-align:center;
+        }
+    </style>
+</head>
+<body onload="add()">
+    <h1>Album</h1><br>
+    <p><b><em>Note : </em> Press C for clear.</b></p>
+    <center>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    </center>
+    <input type="file" accept="image/*" onchange="loadFile(event)" name="image" id="file" /><br><br>
+    <button onclick="addi()">Add</button>
+    <script>
+        imgx = 10;
+        var index = 0;
+        imgy = 10;
+        canvas = new fabric.Canvas('canvas');
+        ctx = canvas.getContext("2d");
+        var loadFile = function(event) {
+                source = URL.createObjectURL(event.target.files[0]);
+                index = index + 1;
+            }; 
+           var randomNum = Math.floor(Math.random()*5);
+           var name = "album"+randomNum+".jpg";
+           document.getElementsByTagName("canvas")[0].id="album"+randomNum;
+           function addi(){
+               add(source);
+           }
+        function add(get_image)
+{
+	fabric.Image.fromURL(get_image, function(Img) {
+	block_image_object = Img;
+
+	block_image_object.scaleToWidth(150);
+	block_image_object.scaleToHeight(150);
+	block_image_object.set({
+	top:10,
+	left:10
+	});
+	canvas.add(block_image_object);
+
+	});
+
+}
+    </script>
+</body>
+</html>

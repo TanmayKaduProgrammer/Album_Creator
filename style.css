@@ -1,0 +1,16 @@
+#album1{
+    background-image: url("album1.jpg");
+    background-size: contain;
+}
+#album2{
+    background-image: url("album2.jpg");
+    background-size: contain;
+}
+#album3{
+    background-image: url("album3.jpg");
+    background-size: contain;
+}
+#album4{
+    background-image: url("album4.jpg");
+    background-size: contain;
+}
